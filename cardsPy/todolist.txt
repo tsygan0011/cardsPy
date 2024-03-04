@@ -1,0 +1,116 @@
+Server Side
+
+Generate and store room number → players in the rooms  (Done?)
+
+Generate a list of a stack of cards (randomize the cards when a new game start)  (Done)
+
+Keep track of the money in the same room/ Refresh the room (Done)
+
+Waiting for players, <2 players wait in room >9 dont allow in game, in between actions wait for players (Done)
+
+Presedence of winning cards
+
+Keep track of timing a player have (60 sec timeout and fold/check)
+
+Keep track of sequence and wait for players to finish their move.
+
+Keep track of how much a person bet
+
+Keep track of the amt of money current bet, same amt or more ltr
+
+If player balance <$0 shouldnt be able to join games (done)
+
+Ready check for players? dictionary room list (done)
+
+
+
+
+
+
+
+
+Client Side
+
+
+
+Create room (/create)
+
+Join room (/join <number>)
+
+Be ready (/ready)
+
+Force start (/force_start) (more than 2 players less than 9 players)
+
+Kick players (/kick <player>)
+
+Leave room (/leave)
+
+Options (/options)
+
+Betting (inline keyboard/reply markup)
+
+What other players did
+
+See the balance of all players
+
+
+
+Preflop = Everyone got their cards but middle card is not drawn yet
+Flop = 3 middle cards has been drawn
+Turn = 4th middle card has been drawn
+River = Last card has been drawn
+
+Anyone betting lesser will need to all in
+
+bets 
+pots = {round1: {"pot":100, "players": chatID},  }
+
+keep track of every person bet for every stage
+
+sort by balance
+
+check the before player if balance is higher or not
+
+if amt than what you alr have, fold or all in
+
+function to check the lowest bet
+
+How co calculate the pot for poker
+
+
+
+
+
+
+"players": {
+        sorted: []
+        "1235123 (chatid1)": {
+          "cards": []
+          "state": 1
+          "balance": 0
+          "round1": 20,
+          "round2": 10,
+          "round3": 100,
+          "round4": 150
+          
+        }, "1235123 (chatid1)": {
+          "cards": []
+          "state": 1
+          "balance": 0
+          "round1": 20,
+          "round2": 10,
+          "round3": 100,
+          "round4": 100,
+          
+          "1235123 (chatid1)": {
+          "cards": []
+          "state": 5
+          "balance": 0
+          "round1": 20,
+          "round2": 0, 
+          "round3": 0,
+          "round4": 0}
+
+main_pot = 20 * 3 + lowest * 3 [first_player, second, third]
+second_pot = (second lowest - lowes) * 2 + 100 * 2 + (100 * 2) [first, second]
+third = 50
